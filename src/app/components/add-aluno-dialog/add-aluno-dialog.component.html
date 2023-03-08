@@ -1,0 +1,29 @@
+<!-- <h1 *ngIf="!isChange" mat-dialog-title>Create Element</h1>
+<h1 *ngIf="isChange" mat-dialog-title>Edit Element</h1> -->
+<form mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Nome Aluno</mat-label>
+    <input matInput [(ngModel)]="data.nomeAluno" name="nomeAluno">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Data Nascimento</mat-label>
+    <input matInput [(ngModel)]="data.dataNascimento" name="nascimento">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Turma</mat-label>
+    <input matInput [(ngModel)]="data.turma" name="turma" >
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Endereço</mat-label>
+    <input matInput [(ngModel)]="data.endereco" name="endereco">
+  </mat-form-field>
+
+</form>
+<!-- <div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button *ngIf="!isChange" [mat-dialog-close]="data" cdkFocusInitial>Create</button>
+  <button mat-button *ngIf="isChange" [mat-dialog-close]="data" cdkFocusInitial>Edit</button> -->
+<!-- </div> -->
