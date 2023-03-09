@@ -1,29 +1,57 @@
 <!-- <h1 *ngIf="!isChange" mat-dialog-title>Create Element</h1>
 <h1 *ngIf="isChange" mat-dialog-title>Edit Element</h1> -->
-<form mat-dialog-content>
-  <mat-form-field>
-    <mat-label>Nome Aluno</mat-label>
-    <input matInput [(ngModel)]="data.nomeAluno" name="nomeAluno">
-  </mat-form-field>
-  
-  <mat-form-field>
-    <mat-label>Data Nascimento</mat-label>
-    <input matInput [(ngModel)]="data.dataNascimento" name="nascimento">
-  </mat-form-field>
-  
-  <mat-form-field>
-    <mat-label>Turma</mat-label>
-    <input matInput [(ngModel)]="data.turma" name="turma" >
-  </mat-form-field>
-  
-  <mat-form-field>
-    <mat-label>Endereço</mat-label>
-    <input matInput [(ngModel)]="data.endereco" name="endereco">
+<form #alunoForm="ngForm" mat-dialog-content>
+  <mat-form-field class="nome-form">
+    <mat-label>Nome Aluno:</mat-label>
+    <mat-error>O nome é obrigatório</mat-error>
+    <input
+      matInput
+      [required]="true"
+      [(ngModel)]="data.nomeAluno"
+      name="nomeAluno"
+    />
   </mat-form-field>
 
+  <mat-form-field class="nascimento-form">
+    <mat-label>Data Nascimento:</mat-label>
+    <mat-error>Data de nascimento Obrigatória</mat-error>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [required]="true"
+      [(ngModel)]="data.dataNascimento"
+      name="nascimento"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="turma-form">
+    <mat-label>Turma:</mat-label>
+    <mat-error>Turma é obrigatório</mat-error>
+    <input matInput [required]="true" [(ngModel)]="data.turma" name="turma" />
+  </mat-form-field>
+
+  <mat-form-field class="endereco-form">
+    <mat-label>Endereço:</mat-label>
+    <input
+      matInput
+      [required]="true"
+      [(ngModel)]="data.endereco"
+      name="endereco"
+    />
+  </mat-form-field>
 </form>
-<!-- <div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button *ngIf="!isChange" [mat-dialog-close]="data" cdkFocusInitial>Create</button>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!alunoForm.valid"
+    (click)="onSumbit()"
+  >
+    Salvar
+  </button>
+  <!-- <button mat-button *ngIf="!isChange" [mat-dialog-close]="data" cdkFocusInitial>Create</button>
   <button mat-button *ngIf="isChange" [mat-dialog-close]="data" cdkFocusInitial>Edit</button> -->
-<!-- </div> -->
+</div>

@@ -9,7 +9,7 @@ import { Aluno } from 'src/app/models/Aluno';
   styleUrls: ['./add-aluno-dialog.component.scss']
 })
 export class AddAlunoDialogComponent implements OnInit {
-  
+
   constructor(
     @Inject(MAT_DIALOG_DATA) 
     public data: Aluno,
@@ -23,5 +23,18 @@ export class AddAlunoDialogComponent implements OnInit {
  
   ngOnInit(): void {
   
+  }
+
+  onSumbit(): void{
+    console.log(this.data);
+    //trocar por enviar, via chamada http
+  }
+
+  onCancel(): void{
+    this.data.endereco = '';
+    this.data.nomeAluno = '';
+    this.data.turma = '';
+    this.data.dataNascimento = new Date();
+    this.dialogRef.close();
   }
 }
