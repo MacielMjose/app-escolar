@@ -1,6 +1,7 @@
 export interface Aluno{
-    nomeAluno: string
+    nome: string
     dataNascimento: Date
     turma: string //talvez trocar por enum
     endereco: string
+    sexo: string
 }

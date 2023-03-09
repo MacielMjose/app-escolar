@@ -9,6 +9,7 @@ import { Aluno } from 'src/app/models/Aluno';
   styleUrls: ['./add-aluno-dialog.component.scss']
 })
 export class AddAlunoDialogComponent implements OnInit {
+  isToggled!:Boolean;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) 
@@ -22,18 +23,19 @@ export class AddAlunoDialogComponent implements OnInit {
   }
  
   ngOnInit(): void {
-  
+    this.isToggled = false;
   }
 
   onSumbit(): void{
     console.log(this.data);
-    //trocar por enviar, via chamada http
+    //trocar por enviar, via chamada http para o backend
   }
 
   onCancel(): void{
     this.data.endereco = '';
-    this.data.nomeAluno = '';
+    this.data.nome = '';
     this.data.turma = '';
+    this.data.sexo = '';
     this.data.dataNascimento = new Date();
     this.dialogRef.close();
   }

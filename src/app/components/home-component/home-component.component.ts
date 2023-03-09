@@ -23,14 +23,16 @@ export class HomeComponentComponent {
       data:
         element == null
           ? {
-              nomeAluno: '',
+              nome: '',
               dataNascimento: Date.now(),
               turma: '',
               endereco: '',
+              sexo: '',
             }
           : {
-              nomeAluno: element.nomeAluno,
+              nome: element.nome,
               dataNascimento: element.dataNascimento,
+              sexo: element.sexo,
               turma: element.turma,
               endereco: element.endereco,
             },

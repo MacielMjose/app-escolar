@@ -7,7 +7,7 @@
     <input
       matInput
       [required]="true"
-      [(ngModel)]="data.nomeAluno"
+      [(ngModel)]="data.nome"
       name="nomeAluno"
     />
   </mat-form-field>
@@ -26,6 +26,16 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
+  <mat-form-field>
+    <mat-label>Sexo</mat-label>
+    <mat-error>É obrigatório escolher uma opção</mat-error>
+    <mat-select [required]="true" [(ngModel)]="data.sexo" name="sexo">
+      <mat-option value="Masculino" >Masculino</mat-option>
+      <mat-option value="Feminino" >Feminino</mat-option>
+      <mat-option value="Indefinido" >Indefinido</mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <mat-form-field class="turma-form">
     <mat-label>Turma:</mat-label>
     <mat-error>Turma é obrigatório</mat-error>
@@ -41,6 +51,17 @@
       name="endereco"
     />
   </mat-form-field>
+
+  <div>
+    <mat-slide-toggle [(ngModel)]="isToggled" name="isToggled">Possui necessidade?</mat-slide-toggle>
+  </div>
+
+  <div *ngIf="isToggled">
+    <mat-form-field class="necessidade">
+      <textarea matInput  [required]="true" name="textNecessidade"></textarea>
+    </mat-form-field>
+  </div>
+
 </form>
 <div mat-dialog-actions>
   <button mat-raised-button (click)="onCancel()">Cancelar</button>
