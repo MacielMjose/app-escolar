@@ -35,6 +35,9 @@ export class HomeComponentComponent {
               sexo: element.sexo,
               turma: element.turma,
               endereco: element.endereco,
+              necessidade: element.necessidade,
+              medicacao: element.medicacao,
+              alergia: element.alergia
             },
     });
   }

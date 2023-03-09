@@ -53,12 +53,32 @@
   </mat-form-field>
 
   <div>
-    <mat-slide-toggle [(ngModel)]="isToggled" name="isToggled">Possui necessidade?</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isToggledNecessidade" name="isToggledNecessidade">Possui necessidade?</mat-slide-toggle>
   </div>
 
-  <div *ngIf="isToggled">
+  <div *ngIf="isToggledNecessidade">
     <mat-form-field class="necessidade">
-      <textarea matInput  [required]="true" name="textNecessidade"></textarea>
+      <textarea placeholder="descreva a necessidade" matInput [required]="true" [(ngModel)]="data.necessidade" name="necessidadeTexto"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-slide-toggle [(ngModel)]="isToggledMedicacao" name="isToggledMedicacao">Toma medicação?</mat-slide-toggle>
+  </div>
+
+  <div *ngIf="isToggledMedicacao">
+    <mat-form-field class="medicacao">
+      <textarea placeholder="descreva a medicação e dosagem" matInput [required]="true" [(ngModel)]="data.medicacao" name="medicacao"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-slide-toggle [(ngModel)]="isToggledAlergia" name="isToggledAlergia">Alergia?</mat-slide-toggle>
+  </div>
+
+  <div *ngIf="isToggledAlergia">
+    <mat-form-field class="necessidade">
+      <textarea placeholder="descreva a alergia" matInput [required]="true" [(ngModel)]="data.alergia" name="alergia"></textarea>
     </mat-form-field>
   </div>
 

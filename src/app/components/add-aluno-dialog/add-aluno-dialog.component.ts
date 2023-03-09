@@ -9,7 +9,9 @@ import { Aluno } from 'src/app/models/Aluno';
   styleUrls: ['./add-aluno-dialog.component.scss']
 })
 export class AddAlunoDialogComponent implements OnInit {
-  isToggled!:Boolean;
+  isToggledNecessidade!:Boolean;
+  isToggledMedicacao!:Boolean;
+  isToggledAlergia!:Boolean;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) 
@@ -23,7 +25,9 @@ export class AddAlunoDialogComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    this.isToggled = false;
+    this.isToggledNecessidade = false;
+    this.isToggledAlergia = false;
+    this.isToggledMedicacao = false;
   }
 
   onSumbit(): void{
@@ -36,6 +40,7 @@ export class AddAlunoDialogComponent implements OnInit {
     this.data.nome = '';
     this.data.turma = '';
     this.data.sexo = '';
+    this.data.necessidade = undefined;
     this.data.dataNascimento = new Date();
     this.dialogRef.close();
   }
