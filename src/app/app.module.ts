@@ -6,23 +6,21 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Angular material imports
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AddAlunoDialogComponent } from './components/add-aluno-dialog/add-aluno-dialog.component';
 import { HomeComponentComponent } from './components/home-component/home-component.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatTableModule} from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 import { AddAlunoTableComponent } from './components/add-aluno-table/add-aluno-table.component';
-import { AddDataEmitterComponent } from './components/add-data-emitter/add-data-emitter.component';
 import { AddPaisTableComponent } from './components/add-pais-table/add-pais-table.component';
 import { AddResponsavelDialogComponent } from './components/add-responsavel-dialog/add-responsavel-dialog.component';
-
 
 @NgModule({
   declarations: [
@@ -46,9 +44,9 @@ import { AddResponsavelDialogComponent } from './components/add-responsavel-dial
     MatDialogModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatTableModule
+    MatTableModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

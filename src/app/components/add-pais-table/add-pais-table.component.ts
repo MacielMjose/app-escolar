@@ -10,30 +10,30 @@ const ELEMENT_DATA: Responsavel[] = [];
 @Component({
   selector: 'app-add-pais-table',
   templateUrl: './add-pais-table.component.html',
-  styleUrls: ['./add-pais-table.component.scss']
+  styleUrls: ['./add-pais-table.component.scss'],
 })
-
 export class AddPaisTableComponent {
-
   constructor(
     public dialog: MatDialog,
     private addResponsavelEmmiterService: AddDataEmitterComponent<Responsavel>
   ) {}
   showHeader: boolean = false;
-  displayedColumns: string[] = ['nome', 'data nascimento', 'sexo', 'turma'];
+  displayedColumns: string[] = ['nome', 'data nascimento', 'sexo'];
   dataSource = [...ELEMENT_DATA];
 
   @ViewChild(MatTable) table!: MatTable<Responsavel>;
 
   addData(aluno: Responsavel) {
-    this.addResponsavelEmmiterService.dadosSelecionados.subscribe((dados) => {
-      console.log('data received by emmitter');
-      console.log(dados);
-      if (!this.dataSource.includes(dados)) {
-        this.dataSource.push(dados);
+    this.addResponsavelEmmiterService.dadosSelecionados.subscribe(
+      (dados: Responsavel) => {
+        console.log('data received by emmitter');
+        console.log(dados);
+        if (typeof dados === "string" && !this.dataSource.includes(dados)) {
+          this.dataSource.push(dados);
+        }
+        this.table?.renderRows();
       }
-      this.table.renderRows();
-    });
+    );
   }
 
   openDialog(element: Responsavel | null): void {
@@ -44,8 +44,11 @@ export class AddPaisTableComponent {
           ? {
               nome: '',
               dataNascimento: Date.now(),
-              turma: '',
               sexo: '',
+              rg: '',
+              cpf: '',
+              estadoCivil: '',
+              profissao: '',
             }
           : {
               nome: element.nome,

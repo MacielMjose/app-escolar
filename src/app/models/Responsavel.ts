@@ -5,5 +5,6 @@ export interface Responsavel{
     rg: string,
     cpf:string,
     estadoCivil:string,
-    profissao: string
+    profissao: string,
+    parentesco: string
 }

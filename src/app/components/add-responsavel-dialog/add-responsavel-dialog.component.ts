@@ -9,6 +9,8 @@ import { AddDataEmitterComponent } from '../add-data-emitter/add-data-emitter.co
   styleUrls: ['./add-responsavel-dialog.component.scss'],
 })
 export class AddResponsavelDialogComponent implements OnInit {
+  valorTextAreaOutros?: string;
+
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: Responsavel,
@@ -22,6 +24,9 @@ export class AddResponsavelDialogComponent implements OnInit {
 
   onSumbit(): void {
     console.log(this.data);
+    if(this.valorTextAreaOutros != null && this.valorTextAreaOutros != undefined){
+      this.data.parentesco = this.valorTextAreaOutros;
+    }
     this.emmiterService.emitirDados(this.data);
     this.dialogRef.close();
     // this.alunoAdded.emit(this.data);

@@ -1,44 +1,62 @@
 <div class="demo-button-container">
-    <button mat-raised-button (click)="openDialog(null)" class="demo-button">
-      Add data
-    </button>
-    <button
-        mat-raised-button
-        [disabled]="!dataSource.length"
-        (click)="removeData()"
-        class="demo-button">
-      Remove data
-    </button>
-  </div>
+  <button mat-raised-button (click)="openDialog(null)" class="demo-button">
+    Add data
+  </button>
+  <button
+    mat-raised-button
+    [disabled]="!dataSource.length"
+    (click)="removeData()"
+    class="demo-button"
+  >
+    Remove data
+  </button>
+</div>
 
-  <div *ngIf="showTableHeader()">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-      <!-- nome Column -->
-      <ng-container matColumnDef="nome">
-        <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let element">{{element.nome}}</td>
-      </ng-container>
-    
-      <!-- data nascimento Column -->
-      <ng-container matColumnDef="data nascimento">
-        <th mat-header-cell *matHeaderCellDef>Nascimeneto</th>
-        <td mat-cell *matCellDef="let element">{{element.dataNascimento | date : 'dd/MM/yyyy'}}</td>
-      </ng-container>
-    
-      <!-- sexo Column -->
-      <ng-container matColumnDef="sexo">
-        <th mat-header-cell *matHeaderCellDef>Sexo</th>
-        <td mat-cell *matCellDef="let element">{{element.sexo}}</td>
-      </ng-container>
-    
-      <!-- turma Column -->
-      <ng-container matColumnDef="turma">
-        <th mat-header-cell *matHeaderCellDef>Turma</th>
-        <td mat-cell *matCellDef="let element">{{element.turma}}</td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
- 
+<div *ngIf="showTableHeader()">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8 demo-table"
+  >
+    <!-- nome Column -->
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+    </ng-container>
+
+    <!-- data nascimento Column -->
+    <ng-container matColumnDef="data nascimento">
+      <th mat-header-cell *matHeaderCellDef>Nascimeneto</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.dataNascimento | date : "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+
+    <!-- sexo Column -->
+    <ng-container matColumnDef="sexo">
+      <th mat-header-cell *matHeaderCellDef>Sexo</th>
+      <td mat-cell *matCellDef="let element">{{ element.sexo }}</td>
+    </ng-container>
+
+    <!-- Rg Column -->
+    <ng-container matColumnDef="rg">
+      <th mat-header-cell *matHeaderCellDef>Rg</th>
+      <td mat-cell *matCellDef="let element">{{ element.rg }}</td>
+    </ng-container>
+
+    <!-- cpf Column -->
+    <ng-container matColumnDef="cpf">
+      <th mat-header-cell *matHeaderCellDef>Rg</th>
+      <td mat-cell *matCellDef="let element">{{ element.cpf }}</td>
+    </ng-container>
+
+    <!-- estadoCivil Column -->
+    <ng-container matColumnDef="estadoCivil">
+      <th mat-header-cell *matHeaderCellDef>Estado Civil</th>
+      <td mat-cell *matCellDef="let element">{{ element.estadoCivil }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

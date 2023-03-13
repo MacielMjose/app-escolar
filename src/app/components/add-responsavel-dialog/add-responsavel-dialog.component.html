@@ -24,6 +24,36 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
+  <mat-form-field>
+    <mat-label>Parentesco:</mat-label>
+    <mat-error>É obrigatório escolher uma opção</mat-error>
+    <mat-select
+      [required]="true"
+      [(ngModel)]="data.parentesco"
+      name="parentesco"
+    >
+      <mat-option value="Pai">Pai</mat-option>
+      <mat-option value="Mãe">Mãe</mat-option>
+      <mat-option value="Avó">Avó</mat-option>
+      <mat-option value="Avó">Avó</mat-option>
+      <mat-option value="Mãe">Tio</mat-option>
+      <mat-option value="Mãe">Tia</mat-option>
+      <mat-option value="Outro">Outro</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div *ngIf="data.parentesco === 'Outro'">
+    <mat-form-field class="parentesco-outro">
+      <textarea
+        placeholder="descreva o parentesco"
+        matInput
+        [required]="true"
+        [(ngModel)]="valorTextAreaOutros"
+        name="parentescoOutro"
+      ></textarea>
+    </mat-form-field>
+  </div>
+
   <mat-form-field class="rg-form">
     <mat-label>Rg Responsavel:</mat-label>
     <mat-error>O Rg é obrigatório</mat-error>
@@ -47,7 +77,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Sexo</mat-label>
+    <mat-label>Sexo:</mat-label>
     <mat-error>É obrigatório escolher uma opção</mat-error>
     <mat-select [required]="true" [(ngModel)]="data.sexo" name="sexo">
       <mat-option value="Masculino">Masculino</mat-option>
@@ -57,7 +87,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Estado Civil</mat-label>
+    <mat-label>Estado Civil:</mat-label>
     <mat-error>É obrigatório escolher uma opção</mat-error>
     <mat-select
       [required]="true"

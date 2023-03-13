@@ -1,11 +1,9 @@
-import {EventEmitter, Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
-export class AddDataEmitterComponent<T> 
-{
+export class AddDataEmitterComponent<T> {
   dadosSelecionados = new EventEmitter<T>();
 
   emitirDados(dados: T): void {

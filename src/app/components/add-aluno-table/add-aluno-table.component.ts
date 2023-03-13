@@ -24,13 +24,13 @@ export class AddAlunoTableComponent {
   @ViewChild(MatTable) table!: MatTable<Aluno>;
 
   addData(aluno: Aluno) {
-    this.addAlunoEmmiterService.dadosSelecionados.subscribe((dados) => {
+    this.addAlunoEmmiterService.dadosSelecionados.subscribe((dados: Aluno) => {
       console.log('data received by emmitter');
       console.log(dados);
       if (!this.dataSource.includes(dados)) {
         this.dataSource.push(dados);
       }
-      this.table.renderRows();
+      this.table?.renderRows();
     });
   }
 
