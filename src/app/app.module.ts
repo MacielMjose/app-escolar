@@ -17,6 +17,11 @@ import { AddAlunoDialogComponent } from './components/add-aluno-dialog/add-aluno
 import { HomeComponentComponent } from './components/home-component/home-component.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import { AddAlunoTableComponent } from './components/add-aluno-table/add-aluno-table.component';
+import { AddDataEmitterComponent } from './components/add-data-emitter/add-data-emitter.component';
+import { AddPaisTableComponent } from './components/add-pais-table/add-pais-table.component';
+import { AddResponsavelDialogComponent } from './components/add-responsavel-dialog/add-responsavel-dialog.component';
 
 
 @NgModule({
@@ -24,6 +29,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     AppComponent,
     AddAlunoDialogComponent,
     HomeComponentComponent,
+    AddAlunoTableComponent,
+    AddPaisTableComponent,
+    AddResponsavelDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +45,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

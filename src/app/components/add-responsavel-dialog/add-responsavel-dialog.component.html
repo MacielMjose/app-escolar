@@ -1,0 +1,96 @@
+<form #alunoForm="ngForm" mat-dialog-content>
+  <mat-form-field class="nome-form">
+    <mat-label>Nome Responsavel:</mat-label>
+    <mat-error>O nome é obrigatório</mat-error>
+    <input
+      matInput
+      [required]="true"
+      [(ngModel)]="data.nome"
+      name="nomeResponsavel"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="nascimento-form">
+    <mat-label>Data Nascimento:</mat-label>
+    <mat-error>Data de nascimento Obrigatória</mat-error>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [required]="true"
+      [(ngModel)]="data.dataNascimento"
+      name="nascimento"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="rg-form">
+    <mat-label>Rg Responsavel:</mat-label>
+    <mat-error>O Rg é obrigatório</mat-error>
+    <input
+      matInput
+      [required]="true"
+      [(ngModel)]="data.rg"
+      name="rgResponsavel"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="cpf-form">
+    <mat-label>Cpf Responsável:</mat-label>
+    <mat-error>O Cpf é obrigatório</mat-error>
+    <input
+      matInput
+      [required]="true"
+      [(ngModel)]="data.cpf"
+      name="cpfResponsavel"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Sexo</mat-label>
+    <mat-error>É obrigatório escolher uma opção</mat-error>
+    <mat-select [required]="true" [(ngModel)]="data.sexo" name="sexo">
+      <mat-option value="Masculino">Masculino</mat-option>
+      <mat-option value="Feminino">Feminino</mat-option>
+      <mat-option value="Indefinido">Indefinido</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Estado Civil</mat-label>
+    <mat-error>É obrigatório escolher uma opção</mat-error>
+    <mat-select
+      [required]="true"
+      [(ngModel)]="data.estadoCivil"
+      name="estadoCivil"
+    >
+      <mat-option value="Solteiro">Solteiro</mat-option>
+      <mat-option value="Casado">Casado</mat-option>
+      <mat-option value="Separado">Separado</mat-option>
+      <mat-option value="Divorciado">Divorciado</mat-option>
+      <mat-option value="Viúvo">Viúvo</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="profissao-form">
+    <mat-label>Profissão:</mat-label>
+    <mat-error>Profissão é obrigatório</mat-error>
+    <input
+      matInput
+      [required]="true"
+      [(ngModel)]="data.profissao"
+      name="profissao"
+    />
+  </mat-form-field>
+</form>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!alunoForm.valid"
+    (click)="onSumbit()"
+  >
+    Salvar
+  </button>
+</div>

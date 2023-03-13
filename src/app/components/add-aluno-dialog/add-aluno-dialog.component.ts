@@ -1,7 +1,7 @@
-import { Dialog } from '@angular/cdk/dialog';
-import { Component, Inject, inject, INJECTOR, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Aluno } from 'src/app/models/Aluno';
+import { AddDataEmitterComponent } from '../add-data-emitter/add-data-emitter.component';
 
 @Component({
   selector: 'app-add-aluno-dialog',
@@ -13,16 +13,15 @@ export class AddAlunoDialogComponent implements OnInit {
   isToggledMedicacao!:Boolean;
   isToggledAlergia!:Boolean;
 
+  @Output() alunoAdded: EventEmitter<Aluno> = new EventEmitter();
+
   constructor(
     @Inject(MAT_DIALOG_DATA) 
     public data: Aluno,
     public dialogRef: MatDialogRef<AddAlunoDialogComponent>,
+    private emmiterService: AddDataEmitterComponent<Aluno>
     )
   {}
-
-  ngOnclick():void{
-    this.dialogRef.close();
-  }
  
   ngOnInit(): void {
     this.isToggledNecessidade = false;
@@ -32,11 +31,13 @@ export class AddAlunoDialogComponent implements OnInit {
 
   onSumbit(): void{
     console.log(this.data);
+    this.emmiterService.emitirDados(this.data);
+    this.dialogRef.close();
+    // this.alunoAdded.emit(this.data);
     //trocar por enviar, via chamada http para o backend
   }
 
   onCancel(): void{
-    this.data.endereco = '';
     this.data.nome = '';
     this.data.turma = '';
     this.data.sexo = '';
