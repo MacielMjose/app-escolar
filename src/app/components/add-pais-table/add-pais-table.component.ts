@@ -18,7 +18,7 @@ export class AddPaisTableComponent {
     private addResponsavelEmmiterService: AddDataEmitterComponent<Responsavel>
   ) {}
   showHeader: boolean = false;
-  displayedColumns: string[] = ['nome', 'data nascimento', 'sexo'];
+  displayedColumns: string[] = ['nome', 'data nascimento', 'sexo']; //creio que deveria ser chamadas conforme o json
   dataSource = [...ELEMENT_DATA];
 
   @ViewChild(MatTable) table!: MatTable<Responsavel>;
